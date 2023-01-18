@@ -1,0 +1,10 @@
+{
+	"BASE_PAGE" : {
+		"CLICK_ELEMENT":"(//*[text()=\"textToReplace\"]/self::*[name()='a' or name()='button'] | //input[@type='submit' and @value='textToReplace'] | //*[text()='textToReplace']/ancestor::*[name()='a' or name()='button'])",
+		"LABEL_ELEMENT_FOR":"//label[text()=\"textToReplace\" and @for]",
+		"INPUT_ELEMENT":"//input[@id=\"textToReplace\"]",
+		"ELEMENT_TEXT":"//*[normalize-space(text())=\"textToReplace\"]"
+	},
+	"HOME_PAGE" : {
+	}
+}
