@@ -4,8 +4,11 @@
   <artifactId>Test-Auto-Force</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
+	  <maven.compiler.target>1.9</maven.compiler.target>
+      <maven.compiler.source>1.9</maven.compiler.source>
 	  <serenity.version>3.5.1</serenity.version>
 	  <utam.po.version>3.0.0</utam.po.version>
+	  <rest.assured.version>5.3.0</rest.assured.version>
   </properties>
   <dependencies>
 	   <dependency>
@@ -26,5 +29,11 @@
 			<version>${utam.po.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest.assured.version}</version>
+			<scope>test</scope>
+			</dependency>
   </dependencies>
 </project>
