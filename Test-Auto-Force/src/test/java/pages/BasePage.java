@@ -18,7 +18,6 @@ public class BasePage extends PageObject {
 	public static JsonObject global_OR_Data;
 	public static Map<Object, Object> globalVariables;
 	
-	
 	/**
 	 * create driver
 	 */
