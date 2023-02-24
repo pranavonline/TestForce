@@ -1,13 +1,13 @@
 package common;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
-
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Objects;
 
 public class FileUtil {
 	
@@ -20,13 +20,9 @@ public class FileUtil {
 				);
 	}
 
-	public static JsonObject loadOR(){
-		return loadJSON("ObjectRepo.json");
-	}
-
-	public static JsonObject loadJSON(String jsonFileName) {
+	public static JsonObject loadOR() {
 		final JsonParser JSON_PARSER = new JsonParser();
-		File indexFile = getTestDataFile(jsonFileName);
+		File indexFile = getTestDataFile("ObjectRepo.json");
 		String fileData = null;
 		try {
 			fileData = Files.toString(indexFile,Charsets.UTF_8);
