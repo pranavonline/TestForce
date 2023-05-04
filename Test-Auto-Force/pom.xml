@@ -6,8 +6,8 @@
   <properties>
 	  <maven.compiler.target>1.9</maven.compiler.target>
       <maven.compiler.source>1.9</maven.compiler.source>
-	  <serenity.version>3.5.1</serenity.version>
-	  <utam.po.version>3.0.0</utam.po.version>
+	  <serenity.version>3.7.1</serenity.version>
+	  <utam.po.version>3.0.2</utam.po.version>
 	  <rest.assured.version>5.3.0</rest.assured.version>
   </properties>
   <dependencies>
