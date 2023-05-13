@@ -1,19 +1,10 @@
 package common;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 import java.util.Map;
-
-import org.junit.Assert;
-
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
-import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-import io.restassured.specification.RequestSpecification;
 
 public class RestAssuredUtil {
 

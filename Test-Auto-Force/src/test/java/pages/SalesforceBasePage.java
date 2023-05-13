@@ -39,7 +39,7 @@ public class SalesforceBasePage extends BasePage {
 	
 	@Step("Set Salesforce Login Page")
 	public void setSFDCLoginPage() {
-		openApp();
+		open();
 		loginPage = from(Login.class);
 	}
 	

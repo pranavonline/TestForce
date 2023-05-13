@@ -19,19 +19,29 @@
 @poc
 Feature: POC
   I want to create POC scenarios
+  
+  Background:
+	Given I open application page
 
-  @poc1
-  Scenario: Validate Yahoo Page
-    Given I open "yahoo" page
-    Then "Yahoo" page should be displayed
+  #@poc1
+  #Scenario: Validate Yahoo Page
+    #Given I open "test" application page
+    #Then The application page with title "Yahoo" should be displayed
 
-  @poc2
-  Scenario Outline: Validate Google search
-    Given I open "google" page
-    When I search for <keyword>
-    Then I verify the search related to <keyword> is displayed
+  @wip @poc2
+  Scenario: Validate Shadow Dom Page
+    Then The application page with title "Home - SHOP" should be displayed
+    When I click the link "Ladies Outerwear" on the "Shop" page
+    Then The application page with title "Ladies Outerwear - SHOP" should be displayed
+    When I click the link "Ladies Modern Stretch Full Zip" on the "Ladies Outwear - SHOP" page
+    Then The application page with title "Ladies Modern Stretch Full Zip" should be displayed
 
-    Examples: 
-      | keyword |
-      | testing |
-      | quality |
+  #@poc3
+  #Scenario Outline: Validate Google search
+    #When I search for <keyword>
+    #Then I verify the search related to <keyword> is displayed
+#
+    #Examples: 
+      #| keyword |
+      #| testing |
+      #| quality |
