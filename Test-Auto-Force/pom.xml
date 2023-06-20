@@ -9,8 +9,8 @@
 		<maven.compiler.target>1.9</maven.compiler.target>
 		<maven.compiler.source>1.9</maven.compiler.source>
 		<maven.version>3.8.1</maven.version>
-		<serenity.version>3.7.1</serenity.version>
-		<utam.po.version>3.0.2</utam.po.version>
+		<serenity.version>3.8.1</serenity.version>
+		<utam.po.version>4.0.1</utam.po.version>
 		<rest.assured.version>5.3.0</rest.assured.version>
 		<junit.platform.version>1.9.3</junit.platform.version>
 	</properties>
@@ -31,6 +31,20 @@
 			<artifactId>serenity-core</artifactId>
 			<version>${serenity.version}</version>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-collections</groupId>
+					<artifactId>commons-collections</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.pdfbox</groupId>
+					<artifactId>pdfbox</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>

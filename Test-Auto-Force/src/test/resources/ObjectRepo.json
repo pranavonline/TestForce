@@ -3,7 +3,8 @@
 		"CLICK_ELEMENT":"(//*[text()=\"textToReplace\"]/self::*[name()='a' or name()='button'] | //input[@type='submit' and @value='textToReplace'] | //*[text()='textToReplace']/ancestor::*[name()='a' or name()='button'])",
 		"LABEL_ELEMENT_FOR":"//label[text()=\"textToReplace\" and @for]",
 		"INPUT_ELEMENT":"//input[@id=\"textToReplace\"]",
-		"ELEMENT_TEXT":"//*[normalize-space(text())=\"textToReplace\"]"
+		"ELEMENT_TEXT":"//*[normalize-space(text())=\"textToReplace\"]",
+		"CLICK_ELEMENT_CSS": "(a[text=\"textToReplace\"] | button [text=\"textToReplace\"] | input[@type='submit' and @value='textToReplace'] | a:has(> *:contains('textToReplace')),[type='button']:has(> *:contains('textToReplace')))"
 	},
 	"HOME_PAGE" : {
 	}

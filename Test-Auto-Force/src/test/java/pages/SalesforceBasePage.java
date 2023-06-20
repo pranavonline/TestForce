@@ -3,16 +3,26 @@ package pages;
 import java.time.Duration;
 
 import net.thucydides.core.annotations.Step;
+import utam.aura.pageobjects.Body;
 import utam.core.framework.base.RootPageObject;
 import utam.core.framework.consumer.UtamLoader;
 import utam.core.framework.consumer.UtamLoaderConfig;
 import utam.core.framework.consumer.UtamLoaderConfigImpl;
 import utam.core.framework.consumer.UtamLoaderImpl;
+import utam.global.pageobjects.AppLauncherMenu;
+import utam.global.pageobjects.AppNav;
+import utam.global.pageobjects.RecordActionWrapper;
 import utam.helpers.pageobjects.Login;
+import utam.navex.pageobjects.DesktopLayoutContainer;
+import utam.records.pageobjects.LwcRecordLayout;
 
 public class SalesforceBasePage extends BasePage {
 	protected static Login loginPage;
 	protected static UtamLoader loader;
+	protected static DesktopLayoutContainer layoutContainer;
+	protected static AppLauncherMenu appLauncherMenu;
+	protected static RecordActionWrapper recordFormModal;
+	protected static Body body;
 	
 	/**
 	 * Helper method to load any root Page Object
@@ -42,8 +52,43 @@ public class SalesforceBasePage extends BasePage {
 		open();
 		loginPage = from(Login.class);
 	}
-	
-	
-	
+
+	@Step("Get Navigation Bar")
+	public AppNav getNavBar() {
+		layoutContainer = from(DesktopLayoutContainer.class);
+		return layoutContainer.getAppNav();
+	}
+
+	@Step("Launch App")
+	public void launchApp(String appName) {
+		getNavBar().getAppLauncherHeader().getButton().click();
+		appLauncherMenu = from(AppLauncherMenu.class);
+		appLauncherMenu.getSearchBar().getLwcInput().setText(appName);
+		appLauncherMenu.getItems().stream().findAny().ifPresent(appLauncherMenuItem -> appLauncherMenuItem.getRoot().click());
+	}
+
+	@Step("Load Record Form Modal")
+	public LwcRecordLayout loadRecordFormModal(){
+		recordFormModal = from(RecordActionWrapper.class);
+		return recordFormModal.getRecordForm().getRecordLayout();
+	}
+
+	@Step("Load Aura Body Class")
+	public Body loadBody() {
+		body = from(Body.class);
+		return body;
+	}
+
+	@Step("Navigate to Tab")
+	public void navToTab(String objectName){
+		try{
+			if(getNavBar().getAppNavBar().getNavItem(objectName) ==null){
+				getNavBar().getAppNavBar().getNavItem(objectName).clickAndWaitForUrl(objectName);
+			}
+		}catch(NullPointerException npe) {
+			getNavBar().getAppNavBar().getShowMoreMenuButton().expand();
+			getNavBar().getAppNavBar().getShowMoreMenuButton().getMenuItemByText(objectName).clickAndWaitForUrl(objectName);
+		}
+	}
 
 }
